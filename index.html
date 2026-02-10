@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beautiful Islamic Remembrance - Morning and Evening Azkar">
+    <title>Azkar | Islamic Remembrance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-mosque"></i>
+                <span>Azkar</span>
+            </div>
+            <div class="nav-links">
+                <a href="#morning" class="nav-link active">Morning</a>
+                <a href="#evening" class="nav-link">Evening</a>
+                <a href="#favorites" class="nav-link">Favorites</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#morning" class="mobile-nav-link">Morning Azkar</a>
+        <a href="#evening" class="mobile-nav-link">Evening Azkar</a>
+        <a href="#favorites" class="mobile-nav-link">Favorites</a>
+        <div class="theme-toggle-mobile">
+            <span>Theme</span>
+            <label class="switch">
+                <input type="checkbox" id="themeToggleMobile">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">ذِكْرُ اللَّهِ</h1>
+            <p class="hero-subtitle">Morning and Evening Remembrances</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" id="currentTimeBtn">
+                    <i class="fas fa-clock"></i>
+                    <span id="currentTime"></span>
+                </button>
+                <button class="btn btn-secondary" id="playAudioBtn">
+                    <i class="fas fa-play"></i>
+                    Listen to Azkar
+                </button>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Time Indicator -->
+        <div class="time-indicator" id="timeIndicator">
+            <div class="time-indicator-content">
+                <i class="fas fa-sun" id="timeIcon"></i>
+                <span id="timeMessage">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Morning Azkar -->
+        <section class="section" id="morning">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-sunrise"></i>
+                </div>
+                <h2 class="section-title">Morning Azkar</h2>
+                <p class="section-subtitle">أَذْكَارُ الصَّبَاحِ</p>
+            </div>
+
+            <div class="azkar-grid">
+                <!-- Morning azkar items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Evening Azkar -->
+        <section class="section" id="evening">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <h2 class="section-title">Evening Azkar</h2>
+                <p class="section-subtitle">أَذْكَارُ المَسَاءِ</p>
+            </div>
+
+            <div class="azkar-grid">
+                <!-- Evening azkar items will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section class="section" id="favorites">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2 class="section-title">Your Favorites</h2>
+                <p class="section-subtitle">المفضلة</p>
+            </div>
+            
+            <div class="favorites-container" id="favoritesContainer">
+                <div class="empty-state" id="emptyFavorites">
+                    <i class="fas fa-heart-broken"></i>
+                    <p>No favorites yet. Click the heart icon on any Zikr to add it here.</p>
+                </div>
+                <!-- Favorites will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="player-controls">
+            <button class="player-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="player-btn" id="playBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="player-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        <div class="player-info">
+            <div class="player-title">Azkar Recitation</div>
+            <div class="player-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+        <button class="player-close" id="closePlayer">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-mosque"></i>
+                <span>Azkar</span>
+            </div>
+            <p class="footer-text">"And the remembrance of Allah is greater" - Quran 29:45</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Privacy</a>
+            </div>
+            <p class="footer-copyright">© 2024 Azkar App. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
